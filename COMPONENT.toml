@@ -1,0 +1,6 @@
+[component]
+name = "SigmaOS-wine-installer"
+tier = 4
+description = "Windows application compatibility layer installer and Wine prefix manager"
+contracts = ['wine-installer', 'wineprefix-manager', 'winetricks-runner']
+upstream_inspirations = ['https://github.com/linuxmint/wine-installer']

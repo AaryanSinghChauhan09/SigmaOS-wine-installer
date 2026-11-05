@@ -1,11 +1,23 @@
-//! SigmaOS-wine-installer — Windows application compatibility installer for SigmaOS
-//!
-//! Part of the SigmaOS multi-repository ecosystem.
-//! See https://github.com/AaryanSinghChauhan09/SigmaOS for details.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct WinePrefix {
+    pub path: String,
+    pub arch: String, // win32 or win64
+}
 
-#![allow(dead_code)]
+impl WinePrefix {
+    pub fn default_prefix() -> Self {
+        Self { path: "~/.wine".into(), arch: "win64".into() }
+    }
+}
 
-/// Module entry point for SigmaOS-wine-installer
-pub fn version() -> &'static str {
-    env!("CARGO_PKG_VERSION")
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_wine_prefix_aaa() {
+        // Arrange & Act
+        let prefix = WinePrefix::default_prefix();
+        // Assert
+        assert_eq!(prefix.arch, "win64");
+    }
 }
